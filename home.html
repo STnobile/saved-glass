@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saved Glass</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="assets/SG.png" alt="Saved Glass" height="60" class="me-2" />
+        <span class="fw-bold text-success">Saved Glass</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link text-success" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-success" href="#contact">Contact</a></li>
+        </ul>
+        <button id="darkModeToggle" class="btn btn-outline-success ms-3" title="Toggle dark mode">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ABOUT SECTION (unchanged) -->
+  <section id="about" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="text-center mb-4">About Saved Glass</h2>
+      <p class="lead text-secondary text-center mb-5">
+        Saved Glass is a craft restoration studio specializing in the repair of chipped and damaged glasses, plates,
+        and ceramicware using premium techniques — including precision grinding, edge smoothing, and the revered
+        Japanese art of <strong>kintsugi</strong>. We help hotels, restaurants, and cafés reduce waste, save costs,
+        being sustainable and maintain their aesthetic standards with beautifully restored tableware.
+      </p>
+      <div class="netflix-carousel-wrapper position-relative mb-5">
+        <button class="carousel-control prev"><i class="bi bi-chevron-left"></i></button>
+        <div class="netflix-carousel">
+          <div class="carousel-item"><img src="assets/kingt.jpg" alt="Restored Glass" loading="lazy"></div>
+          <div class="carousel-item"><img src="assets/kintsugi1.jpg" alt="Kintsugi Glass" loading="lazy"></div>
+          <div class="carousel-item"><img src="assets/kintsugi2.jpg" alt="Close-up Kintsugi" loading="lazy"></div>
+          <div class="carousel-item"><img src="assets/kintsugi3.jpg" alt="Repaired Ceramic" loading="lazy"></div>
+          <div class="carousel-item"><img src="assets/kintsugi4.jpg" alt="Restored Bowl" loading="lazy"></div>
+        </div>
+        <button class="carousel-control next"><i class="bi bi-chevron-right"></i></button>
+      </div>
+      <div class="row text-center mb-5">
+        <div class="col-md-4">
+          <i class="bi bi-star-fill text-success fs-2 mb-2"></i>
+          <h5 class="fw-bold">Luxury Finish</h5>
+          <p class="text-muted">Perfect for premium establishments.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="bi bi-piggy-bank-fill text-success fs-2 mb-2"></i>
+          <h5 class="fw-bold">Cost-Effective</h5>
+          <p class="text-muted">Save money without compromising quality.</p>
+        </div>
+        <div class="col-md-4">
+          <i class="bi bi-recycle text-success fs-2 mb-2"></i>
+          <h5 class="fw-bold">Sustainable</h5>
+          <p class="text-muted">Reduce waste and reinforce eco-values.</p>
+        </div>
+      </div>
+      <h4 class="text-center mb-3 text-gold">Our Services</h4>
+      <div class="services-center-wrapper mx-auto">
+        <ul class="list-group list-group-flush mb-5 text-center">
+          <li class="list-group-item">✔️ Rim Chip Repair – Safe edge refinishing for chipped glasses</li>
+          <li class="list-group-item">✔️ Kintsugi Restoration – Gold repair embracing flaws as beauty</li>
+          <li class="list-group-item">✔️ Plate & Bowl Refinishing – Extend your tableware’s life</li>
+          <li class="list-group-item">✔️ Custom Pickup & Delivery – Recurring logistics for busy clients</li>
+        </ul>
+      </div>
+      <h4 class="text-center mb-3 text-gold">Cost Comparison (per 100 units)</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered text-center">
+          <thead class="table-light">
+            <tr>
+              <th>Item</th>
+              <th>Replace Cost</th>
+              <th>Saved Glass Repair</th>
+              <th>Estimated Savings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wine Glasses</td>
+              <td>$600</td>
+              <td>$200</td>
+              <td class="text-success fw-bold">$400</td>
+            </tr>
+            <tr>
+              <td>Tumblers</td>
+              <td>$500</td>
+              <td>$150</td>
+              <td class="text-success fw-bold">$350</td>
+            </tr>
+            <tr>
+              <td>Ceramic Cups</td>
+              <td>$700</td>
+              <td>$250</td>
+              <td class="text-success fw-bold">$450</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-5" style="background-color: #f8f9f6;">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <form id="contact-form" class="mx-auto" style="max-width: 600px;">
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" class="form-control border-gold" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Your Email</label>
+          <input type="email" class="form-control border-gold" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Your Message</label>
+          <textarea class="form-control border-gold" id="message" rows="5" placeholder="Type your message..."
+            required></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-lg text-light" style="background-color: #1c3d2b;">
+            Send Message <i class="bi bi-envelope-paper ms-2"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Toast container for feedback -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer">
+    <div id="formToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="4000">
+      <div class="toast-header">
+        <strong class="me-auto" id="toastTitle">Notification</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" id="toastBody"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark text-light text-center py-3">
+    <small>&copy; 2025 Saved Glass. All rights reserved.</small>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Carousel, Dark Mode, Form JS -->
+  <script>
+    // Carousel & dark mode logic (same as before) ...
+    const carousel = document.querySelector(".netflix-carousel");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    const itemWidth = 250;
+    prevBtn.onclick = () => carousel.scrollBy({ left: -itemWidth, behavior: "smooth" });
+    nextBtn.onclick = () => carousel.scrollBy({ left: itemWidth, behavior: "smooth" });
+    let autoplay = setInterval(() => {
+      if ((carousel.scrollLeft + carousel.clientWidth) >= carousel.scrollWidth) {
+        carousel.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        carousel.scrollBy({ left: itemWidth, behavior: "smooth" });
+      }
+    }, 3000);
+    carousel.addEventListener("mouseenter", () => clearInterval(autoplay));
+    carousel.addEventListener("mouseleave", () => {
+      autoplay = setInterval(() => {
+        if ((carousel.scrollLeft + carousel.clientWidth) >= carousel.scrollWidth) {
+          carousel.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          carousel.scrollBy({ left: itemWidth, behavior: "smooth" });
+        }
+      }, 3000);
+    });
+    const toggleBtn = document.getElementById("darkModeToggle");
+    const icon = toggleBtn.querySelector("i");
+    if (localStorage.getItem("darkMode") === "enabled") {
+      document.body.classList.add("dark-mode");
+      icon.classList.replace("bi-moon-fill", "bi-sun-fill");
+    }
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      icon.classList.replace(
+        isDark ? "bi-moon-fill" : "bi-sun-fill",
+        isDark ? "bi-sun-fill" : "bi-moon-fill"
+      );
+      localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+    });
+
+    // Toast helper
+    function showToast(title, message) {
+      const toastEl = document.getElementById('formToast');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastBody').textContent = message;
+      const toast = bootstrap.Toast.getOrCreateInstance(toastEl);
+      toast.show();
+    }
+
+    // Contact form logic
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const name = form.querySelector('#name').value.trim();
+  const email = form.querySelector('#email').value.trim();
+  const message = form.querySelector('#message').value.trim();
+
+  // ✅ Frontend validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!name || !email || !message) {
+    showToast('Validation Error', 'Please fill in all fields');
+    return;
+  }
+
+  if (!emailRegex.test(email)) {
+    showToast('Validation Error', 'Please enter a valid email address');
+    return;
+  }
+
+  try {
+    const resp = await fetch('http://localhost:5050/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    const data = await resp.json();
+
+    if (resp.ok) {
+      showToast('Success', 'Your message was sent!');
+      form.reset();
+    } else {
+      showToast('Error', data.error || 'Unable to send message');
+    }
+  } catch (err) {
+    console.error('Submit error:', err);
+    showToast('Error', 'Error submitting form');
+  }
+});
+  </script>
+</body>
+</html>
