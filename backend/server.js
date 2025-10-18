@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 5050;
 
-// ✅ CORS
+// CORS
 app.use(cors({
   origin: 'http://127.0.0.1:5500',
   methods: ['GET', 'POST'],
@@ -17,12 +17,12 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// ✅ Test endpoint
+// Test endpoint
 app.get('/cors-test', (req, res) => {
   res.json({ status: 'ok', message: 'CORS is working!' });
 });
 
-// ✅ Contact form
+// Contact form handler
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -54,17 +54,23 @@ app.post('/api/contact', async (req, res) => {
       `
     });
 
-    // 📬 Send confirmation to sender
+    // 📬 Confirmation email to sender
     await transporter.sendMail({
       from: process.env.EMAIL_FROM,
       to: email,
       subject: `Thank you for contacting Saved Glass`,
       html: `
-        <p>Hi ${name},</p>
-        <p>Thank you for reaching out. We received your message:</p>
-        <blockquote>${message}</blockquote>
-        <p>We’ll be in touch soon.</p>
-        <p>— Saved Glass</p>
+        <div style="font-family: Arial, sans-serif; color: #333;">
+          <img src="https://res.cloudinary.com/dj3sy6ut7/image/upload/v1760790715/saved-glass/SG.png" alt="Saved Glass Logo" style="height: 60px; margin-bottom: 20px;" />
+          <p>Hi ${name},</p>
+          <p>Thank you for reaching out. We received your message:</p>
+          <blockquote style="border-left: 4px solid #ccc; padding-left: 10px; color: #555;">${message}</blockquote>
+          <p>We’ll be in touch soon.</p>
+          <p style="color: #1c3d2b; font-weight: bold;">— Saved Glass</p>
+          <div style="margin-top: 20px;">
+            <a href="https://savedglass.com" style="padding: 10px 20px; background-color: #1c3d2b; color: #fff; text-decoration: none; border-radius: 5px;">Visit Our Website</a>
+          </div>
+        </div>
       `
     });
 
