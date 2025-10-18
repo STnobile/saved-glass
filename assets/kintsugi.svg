@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="kintsugiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f0e6" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#kintsugiBg)" />
+  <path d="M150 60h100c20 0 36 16 32 34l-20 130c-3 18-20 30-38 30h-48c-18 0-35-12-38-30l-20-130c-4-18 12-34 32-34z" fill="#fefbf4" stroke="#1c3d2b" stroke-width="12" stroke-linejoin="round" />
+  <path d="M170 78h60c12 0 22 8 19 18l-3 22-46 32-42-28-4-26c-2-10 8-18 16-18z" fill="#ffffff" stroke="#c89d49" stroke-width="8" />
+  <path d="M190 140l-12 82" stroke="#c89d49" stroke-width="8" stroke-linecap="round" />
+  <path d="M212 132l-8 90" stroke="#c89d49" stroke-width="8" stroke-linecap="round" />
+</svg>

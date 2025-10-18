@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <radialGradient id="tumblerGlow" cx="50%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#f9f6ec" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#tumblerGlow)" />
+  <g stroke="#1c3d2b" stroke-width="10" fill="#ffffff" stroke-linejoin="round">
+    <rect x="90" y="80" width="80" height="140" rx="18" />
+    <rect x="230" y="80" width="80" height="140" rx="18" />
+  </g>
+  <g stroke="#c89d49" stroke-width="8" fill="none" stroke-linecap="round">
+    <path d="M100 110h60" />
+    <path d="M240 110h60" />
+    <path d="M120 150h40" />
+    <path d="M260 150h40" />
+  </g>
+</svg>

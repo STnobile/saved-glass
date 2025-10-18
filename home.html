@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,38 +8,41 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
+
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="assets/SG.png" alt="Saved Glass" height="60" class="me-2" />
+        <img src="https://res.cloudinary.com/dj3sy6ut7/image/upload/v1760790715/saved-glass/SG.png" alt="Saved Glass"
+          height="60" class="me-2" />
         <span class="fw-bold text-success">Saved Glass</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link text-success" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link text-success" href="#contact">Contact</a></li>
+
+      <div class="collapse navbar-collapse justify-content-lg-end text-end" id="navbarNav">
+        <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0">
+          <li class="nav-item px-3">
+            <a class="nav-link text-success" href="#about">About</a>
+          </li>
+          <li class="nav-item px-3">
+            <a class="nav-link text-success" href="#contact">Contact</a>
+          </li>
         </ul>
-        <button id="darkModeToggle" class="btn btn-outline-success ms-3" title="Toggle dark mode">
-          <i class="bi bi-moon-fill"></i>
-        </button>
       </div>
     </div>
   </nav>
 
-  <!-- ABOUT SECTION (unchanged) -->
+  <!-- ABOUT SECTION -->
   <section id="about" class="py-5 bg-white">
     <div class="container">
       <h2 class="text-center mb-4">About Saved Glass</h2>
@@ -48,34 +52,85 @@
         Japanese art of <strong>kintsugi</strong>. We help hotels, restaurants, and cafés reduce waste, save costs,
         being sustainable and maintain their aesthetic standards with beautifully restored tableware.
       </p>
-      <div class="netflix-carousel-wrapper position-relative mb-5">
-        <button class="carousel-control prev"><i class="bi bi-chevron-left"></i></button>
-        <div class="netflix-carousel">
-          <div class="carousel-item"><img src="assets/kingt.jpg" alt="Restored Glass" loading="lazy"></div>
-          <div class="carousel-item"><img src="assets/kintsugi1.jpg" alt="Kintsugi Glass" loading="lazy"></div>
-          <div class="carousel-item"><img src="assets/kintsugi2.jpg" alt="Close-up Kintsugi" loading="lazy"></div>
-          <div class="carousel-item"><img src="assets/kintsugi3.jpg" alt="Repaired Ceramic" loading="lazy"></div>
-          <div class="carousel-item"><img src="assets/kintsugi4.jpg" alt="Restored Bowl" loading="lazy"></div>
+    </div>
+
+    <div class="netflix-carousel-wrapper mb-5">
+      <div class="carousel-track position-relative">
+        <button class="carousel-control prev" type="button" aria-label="Scroll carousel backward"
+          aria-controls="galleryCarousel">
+        </button>
+        <div id="galleryCarousel" class="netflix-carousel d-flex flex-nowrap align-items-stretch gap-3" role="region"
+          aria-label="Restored glassware showcase" aria-live="polite" tabindex="0">
+          <figure class="netflix-item bg-white rounded-4 shadow-sm">
+            <picture class="carousel-media">
+              <source srcset="https://res.cloudinary.com/dj3sy6ut7/image/upload/v1760790715/saved-glass/SG.png"
+                type="image/png">
+              <img
+                class="img-fluid w-100 h-100 object-fit-contain"
+                src="assets/rim.svg"
+                alt="Repaired wine glass rim with smooth edge"
+                loading="lazy">
+            </picture>
+            <figcaption class="carousel-card-caption small text-gold mt-2">Rim Chip Refinishing</figcaption>
+          </figure>
+          <figure class="netflix-item bg-white rounded-4 shadow-sm">
+            <picture class="carousel-media">
+              <source srcset="https://res.cloudinary.com/dj3sy6ut7/image/upload/v1760790715/saved-glass/SG.png"
+                type="image/png">
+              <img
+                class="img-fluid w-100 h-100 object-fit-contain"
+                src="assets/kintsugi.svg"
+                alt="Cup restored using gold kintsugi seams"
+                loading="lazy">
+            </picture>
+            <figcaption class="carousel-card-caption small text-gold mt-2">Kintsugi Restoration</figcaption>
+          </figure>
+          <figure class="netflix-item bg-white rounded-4 shadow-sm">
+            <picture class="carousel-media">
+              <source srcset="https://res.cloudinary.com/dj3sy6ut7/image/upload/v1760790715/saved-glass/SG.png"
+                type="image/png">
+              <img
+                class="img-fluid w-100 h-100 object-fit-contain"
+                src="assets/tumblers.svg"
+                alt="Polished tumbler set reflecting soft light"
+                loading="lazy">
+            </picture>
+            <figcaption class="carousel-card-caption small text-gold mt-2">Polished Tumblers</figcaption>
+          </figure>
+          <figure class="netflix-item bg-white rounded-4 shadow-sm">
+            <picture class="carousel-media">
+              <source srcset="https://res.cloudinary.com/dj3sy6ut7/image/upload/v1760790715/saved-glass/SG.png"
+                type="image/png">
+              <img
+                class="img-fluid w-100 h-100 object-fit-contain"
+                src="assets/plate.svg"
+                alt="Fine china plate with renewed finish"
+                loading="lazy">
+            </picture>
+            <figcaption class="carousel-card-caption small text-gold mt-2">Plate Refinishing</figcaption>
+          </figure>
+          <figure class="netflix-item bg-white rounded-4 shadow-sm">
+            <picture class="carousel-media">
+              <source srcset="https://res.cloudinary.com/dj3sy6ut7/image/upload/v1760790715/saved-glass/SG.png"
+                type="image/png">
+              <img
+                class="img-fluid w-100 h-100 object-fit-contain"
+                src="assets/SG.png"
+                alt="Saved Glass brand emblem"
+                loading="lazy">
+            </picture>
+            <figcaption class="carousel-card-caption small text-gold mt-2">Trusted Craftsmanship</figcaption>
+          </figure>
         </div>
-        <button class="carousel-control next"><i class="bi bi-chevron-right"></i></button>
+        <button class="carousel-control next" type="button" aria-label="Scroll carousel forward"
+          aria-controls="galleryCarousel">
+        </button>
       </div>
-      <div class="row text-center mb-5">
-        <div class="col-md-4">
-          <i class="bi bi-star-fill text-success fs-2 mb-2"></i>
-          <h5 class="fw-bold">Luxury Finish</h5>
-          <p class="text-muted">Perfect for premium establishments.</p>
-        </div>
-        <div class="col-md-4">
-          <i class="bi bi-piggy-bank-fill text-success fs-2 mb-2"></i>
-          <h5 class="fw-bold">Cost-Effective</h5>
-          <p class="text-muted">Save money without compromising quality.</p>
-        </div>
-        <div class="col-md-4">
-          <i class="bi bi-recycle text-success fs-2 mb-2"></i>
-          <h5 class="fw-bold">Sustainable</h5>
-          <p class="text-muted">Reduce waste and reinforce eco-values.</p>
-        </div>
-      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-5 bg-light">
+    <div class="container">
       <h4 class="text-center mb-3 text-gold">Our Services</h4>
       <div class="services-center-wrapper mx-auto">
         <ul class="list-group list-group-flush mb-5 text-center">
@@ -128,16 +183,18 @@
       <form id="contact-form" class="mx-auto" style="max-width: 600px;">
         <div class="mb-3">
           <label for="name" class="form-label">Your Name</label>
-          <input type="text" class="form-control border-gold" id="name" placeholder="Enter your name" required>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name" required autocomplete="name"
+            aria-label="Your Name">
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Your Email</label>
-          <input type="email" class="form-control border-gold" id="email" placeholder="Enter your email" required>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email" required
+            autocomplete="email" aria-label="Your Email">
         </div>
         <div class="mb-3">
           <label for="message" class="form-label">Your Message</label>
-          <textarea class="form-control border-gold" id="message" rows="5" placeholder="Type your message..."
-            required></textarea>
+          <textarea class="form-control" id="message" rows="5" placeholder="Type your message..." required
+            aria-label="Your Message"></textarea>
         </div>
         <div class="text-center">
           <button type="submit" class="btn btn-lg text-light" style="background-color: #1c3d2b;">
@@ -148,118 +205,106 @@
     </div>
   </section>
 
-  <!-- Toast container for feedback -->
+  <!-- TOAST FEEDBACK -->
   <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer">
-    <div id="formToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="4000">
-      <div class="toast-header">
+    <div id="formToast" class="toast border-0" role="alert" aria-live="assertive" aria-atomic="true"
+      data-bs-delay="4000">
+      <div class="toast-header bg-success text-white">
         <strong class="me-auto" id="toastTitle">Notification</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
-      <div class="toast-body" id="toastBody"></div>
+      <div class="toast-body bg-light" id="toastBody"></div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-dark text-light text-center py-3">
-    <small>&copy; 2025 Saved Glass. All rights reserved.</small>
-  </footer>
-
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="js/carousel.js"></script>
 
-  <!-- Carousel, Dark Mode, Form JS -->
   <script>
-    // Carousel & dark mode logic (same as before) ...
-    const carousel = document.querySelector(".netflix-carousel");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-    const itemWidth = 250;
-    prevBtn.onclick = () => carousel.scrollBy({ left: -itemWidth, behavior: "smooth" });
-    nextBtn.onclick = () => carousel.scrollBy({ left: itemWidth, behavior: "smooth" });
-    let autoplay = setInterval(() => {
-      if ((carousel.scrollLeft + carousel.clientWidth) >= carousel.scrollWidth) {
-        carousel.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        carousel.scrollBy({ left: itemWidth, behavior: "smooth" });
-      }
-    }, 3000);
-    carousel.addEventListener("mouseenter", () => clearInterval(autoplay));
-    carousel.addEventListener("mouseleave", () => {
-      autoplay = setInterval(() => {
-        if ((carousel.scrollLeft + carousel.clientWidth) >= carousel.scrollWidth) {
-          carousel.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          carousel.scrollBy({ left: itemWidth, behavior: "smooth" });
+    document.addEventListener('DOMContentLoaded', () => {
+      // Navbar auto-collapse on scroll
+      const navbarCollapse = document.getElementById('navbarNav');
+
+      window.addEventListener('scroll', () => {
+        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+        if (bsCollapse && window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+          bsCollapse.hide(); // Collapse the navbar
         }
-      }, 3000);
-    });
-    const toggleBtn = document.getElementById("darkModeToggle");
-    const icon = toggleBtn.querySelector("i");
-    if (localStorage.getItem("darkMode") === "enabled") {
-      document.body.classList.add("dark-mode");
-      icon.classList.replace("bi-moon-fill", "bi-sun-fill");
-    }
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const isDark = document.body.classList.contains("dark-mode");
-      icon.classList.replace(
-        isDark ? "bi-moon-fill" : "bi-sun-fill",
-        isDark ? "bi-sun-fill" : "bi-moon-fill"
-      );
-      localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
-    });
+      });
 
-    // Toast helper
-    function showToast(title, message) {
-      const toastEl = document.getElementById('formToast');
-      document.getElementById('toastTitle').textContent = title;
-      document.getElementById('toastBody').textContent = message;
-      const toast = bootstrap.Toast.getOrCreateInstance(toastEl);
-      toast.show();
-    }
+      // Contact form logic
+      const form = document.getElementById('contact-form');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const messageInput = document.getElementById('message');
 
-    // Contact form logic
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-  const name = form.querySelector('#name').value.trim();
-  const email = form.querySelector('#email').value.trim();
-  const message = form.querySelector('#message').value.trim();
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
 
-  // ✅ Frontend validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!name || !email || !message) {
+          showToast('Validation Error', 'Please fill in all fields', 'danger');
+          return;
+        }
 
-  if (!name || !email || !message) {
-    showToast('Validation Error', 'Please fill in all fields');
-    return;
-  }
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+          showToast('Validation Error', 'Please enter a valid email address', 'danger');
+          return;
+        }
 
-  if (!emailRegex.test(email)) {
-    showToast('Validation Error', 'Please enter a valid email address');
-    return;
-  }
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending... <span class="spinner-border spinner-border-sm"></span>';
 
-  try {
-    const resp = await fetch('http://localhost:5050/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message }),
-    });
+        try {
+          const res = await fetch('http://localhost:5050/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, message }),
+          });
 
-    const data = await resp.json();
+          const data = await res.json();
+          if (res.ok) {
+            showToast('Success', 'Your message was sent!', 'success');
+            form.reset();
+          } else {
+            showToast('Server Error', data.error || 'Unable to send message', 'danger');
+          }
+        } catch (err) {
+          console.error(err);
+          showToast('Error', 'Something went wrong. Please try again.', 'danger');
+        }
 
-    if (resp.ok) {
-      showToast('Success', 'Your message was sent!');
-      form.reset();
-    } else {
-      showToast('Error', data.error || 'Unable to send message');
-    }
-  } catch (err) {
-    console.error('Submit error:', err);
-    showToast('Error', 'Error submitting form');
-  }
-});
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      });
+
+      function showToast(title, message, type = 'success') {
+        const toastEl = document.getElementById('formToast');
+        const toast = new bootstrap.Toast(toastEl);
+        const toastTitle = document.getElementById('toastTitle');
+        const toastBody = document.getElementById('toastBody');
+
+        toastTitle.textContent = title;
+        toastBody.textContent = message;
+
+        toastEl.querySelector('.toast-header').className = `toast-header bg-${type} text-white`;
+        toastEl.querySelector('.btn-close').className = `btn-close btn-close-white`;
+        toastEl.querySelector('.toast-body').className = `toast-body bg-light`;
+
+        toast.show();
+      }
+    }); 
   </script>
+
 </body>
+
 </html>
