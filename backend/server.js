@@ -148,7 +148,7 @@ app.post('/api/contact', async (req, res) => {
           <p>We’ll be in touch soon.</p>
           <p style="color: #1c3d2b; font-weight: bold;">— Saved Glass</p>
           <div style="margin-top: 20px;">
-            <a href="https://savedglass.com" style="padding: 10px 20px; background-color: #1c3d2b; color: #fff; text-decoration: none; border-radius: 5px;">Visit Our Website</a>
+            <a href="https://stnobile.github.io/saved-glass/" style="padding: 10px 20px; background-color: #1c3d2b; color: #fff; text-decoration: none; border-radius: 5px;">Visit Our Website</a>
           </div>
         </div>
       `,
