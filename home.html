@@ -17,6 +17,11 @@
   <link rel="manifest" href="site.webmanifest" />
   <title>Saved Glass</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 
 
@@ -25,7 +30,7 @@
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="assets/SG.webp" alt="Saved Glass logo" class="me-2 brand-logo" width="256" height="256" />
@@ -51,10 +56,13 @@
   </nav>
 
   <!-- ABOUT SECTION -->
-  <section id="about" class="py-5 bg-white">
-    <div class="container">
-      <h2 class="text-center mb-4">About Saved Glass</h2>
-      <p class="lead text-secondary text-center mb-5">
+  <section id="about" class="py-5">
+    <div class="container about-intro">
+      <div class="about-heading text-center">
+        <span class="section-eyebrow">Crafted Restoration</span>
+        <h2 class="about-title">About Saved Glass</h2>
+      </div>
+      <p class="lead text-secondary text-center mb-5 about-copy">
         Saved Glass is a craft restoration studio specializing in the repair of chipped and damaged glasses, plates,
         and ceramicware using premium techniques — including precision grinding, edge smoothing, and the revered
         Japanese art of <strong>kintsugi</strong>. We help hotels, restaurants, and cafés reduce waste, save costs,
@@ -112,79 +120,87 @@
     </div>
   </section>
 
-  <section id="services" class="py-5 bg-light">
+  <section id="services" class="py-5">
     <div class="container">
-      <h4 class="text-center mb-3 text-gold">Our Services</h4>
-      <div class="services-center-wrapper mx-auto">
-        <ul class="list-group list-group-flush mb-5 text-center">
-          <li class="list-group-item">✔️ Rim Chip Repair – Safe edge refinishing for chipped glasses</li>
-          <li class="list-group-item">✔️ Kintsugi Restoration – Gold repair embracing flaws as beauty</li>
-          <li class="list-group-item">✔️ Plate & Bowl Refinishing – Extend your tableware’s life</li>
-          <li class="list-group-item">✔️ Custom Pickup & Delivery – Recurring logistics for busy clients</li>
-        </ul>
-      </div>
-      <h4 class="text-center mb-3 text-gold">Cost Comparison (per 100 units)</h4>
-      <div class="table-responsive">
-        <table class="table table-bordered text-center">
-          <thead class="table-light">
-            <tr>
-              <th>Item</th>
-              <th>Replace Cost</th>
-              <th>Saved Glass Repair</th>
-              <th>Estimated Savings</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Wine Glasses</td>
-              <td>$600</td>
-              <td>$200</td>
-              <td class="text-success fw-bold">$400</td>
-            </tr>
-            <tr>
-              <td>Tumblers</td>
-              <td>$500</td>
-              <td>$150</td>
-              <td class="text-success fw-bold">$350</td>
-            </tr>
-            <tr>
-              <td>Ceramic Cups</td>
-              <td>$700</td>
-              <td>$250</td>
-              <td class="text-success fw-bold">$450</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="section-panel">
+        <h4 class="text-center mb-3 text-gold section-heading">Our Services</h4>
+        <div class="services-center-wrapper mx-auto">
+          <ul class="list-group list-group-flush mb-5 text-center">
+            <li class="list-group-item">✔️ Rim Chip Repair – Safe edge refinishing for chipped glasses</li>
+            <li class="list-group-item">✔️ Kintsugi Restoration – Gold repair embracing flaws as beauty</li>
+            <li class="list-group-item">✔️ Plate & Bowl Refinishing – Extend your tableware’s life</li>
+            <li class="list-group-item">✔️ Custom Pickup & Delivery – Recurring logistics for busy clients</li>
+          </ul>
+        </div>
+        <h4 class="text-center mb-3 text-gold section-heading">Cost Comparison (per 100 units)</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light">
+              <tr>
+                <th>Item</th>
+                <th>Replace Cost</th>
+                <th>Saved Glass Repair</th>
+                <th>Estimated Savings</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Wine Glasses</td>
+                <td>$600</td>
+                <td>$200</td>
+                <td class="text-success fw-bold">$400</td>
+              </tr>
+              <tr>
+                <td>Tumblers</td>
+                <td>$500</td>
+                <td>$150</td>
+                <td class="text-success fw-bold">$350</td>
+              </tr>
+              <tr>
+                <td>Ceramic Cups</td>
+                <td>$700</td>
+                <td>$250</td>
+                <td class="text-success fw-bold">$450</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT SECTION -->
-  <section id="contact" class="py-5" style="background-color: #f8f9f6;">
+  <section id="contact" class="contact-section">
     <div class="container">
-      <h2 class="text-center mb-4">Contact Us</h2>
-      <form id="contact-form" class="mx-auto" style="max-width: 600px;">
-        <div class="mb-3">
-          <label for="name" class="form-label">Your Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter your name" required autocomplete="name"
-            aria-label="Your Name">
+      <div class="contact-card">
+        <div class="contact-intro">
+          <h2 class="contact-title">Ready to restore your glassware?</h2>
+          <p class="contact-copy">
+            Saved Glass blends precision grinding, edge smoothing, and Japanese kintsugi techniques to give your tableware a second life.
+            Let’s keep your hotel, restaurant, or café looking flawless while reducing waste and costs.
+          </p>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Your Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter your email" required
-            autocomplete="email" aria-label="Your Email">
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Your Message</label>
-          <textarea class="form-control" id="message" rows="5" placeholder="Type your message..." required
-            aria-label="Your Message"></textarea>
-        </div>
-        <div class="text-center">
-          <button type="submit" class="btn btn-lg text-light" style="background-color: #1c3d2b;">
-            Send Message <span class="ms-2" aria-hidden="true">✉️</span>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-field">
+            <label for="name" class="form-label">Name <span class="required">(required)</span></label>
+            <input type="text" class="form-control" id="name" placeholder="Your full name" required autocomplete="name"
+              aria-label="Your Name">
+          </div>
+          <div class="form-field">
+            <label for="email" class="form-label">Email <span class="required">(required)</span></label>
+            <input type="email" class="form-control" id="email" placeholder="name@company.com" required
+              autocomplete="email" aria-label="Your Email">
+          </div>
+          <div class="form-field">
+            <label for="message" class="form-label">Tell us about your project <span class="required">(required)</span></label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Share the pieces you’d like restored..."
+              required aria-label="Your Message"></textarea>
+          </div>
+          <button type="submit" class="contact-submit">
+            Send Message <span aria-hidden="true">↗</span>
           </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -206,6 +222,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const navbarCollapse = document.getElementById('navbarNav');
       const navbarToggler = document.querySelector('.navbar-toggler');
+      const navbar = document.querySelector('.navbar');
       const NAV_BREAKPOINT = 992;
       let toastTimeout = null;
 
@@ -237,7 +254,22 @@
         }
 
         navLinks.forEach((link) => {
-          link.addEventListener('click', () => {
+          link.addEventListener('click', (event) => {
+            const href = link.getAttribute('href') || '';
+            if (href.startsWith('#') && href.length > 1) {
+              const targetId = href.slice(1);
+              const target = document.getElementById(targetId);
+              if (target) {
+                event.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (history.pushState) {
+                  history.replaceState(null, '', `#${targetId}`);
+                } else {
+                  window.location.hash = targetId;
+                }
+              }
+            }
+
             if (window.innerWidth < NAV_BREAKPOINT) {
               closeNav();
             }
