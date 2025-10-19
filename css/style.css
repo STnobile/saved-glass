@@ -728,6 +728,19 @@ h2, h4 {
   z-index: 1080;
 }
 
+.toast-container-center {
+  top: clamp(4rem, 12vh, 6rem);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: auto;
+  right: auto;
+  width: min(90vw, 420px);
+}
+
+.toast-container-center .toast {
+  width: 100%;
+}
+
 .toast {
   background-color: #ffffff;
   border-radius: 1rem;
