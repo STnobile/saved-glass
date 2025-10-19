@@ -138,19 +138,73 @@ app.post('/api/contact', async (req, res) => {
       from: process.env.EMAIL_FROM,
       to: normalizedEmail,
       subject: 'Thank you for contacting Saved Glass',
-      text: `Hi ${rawName},\n\nThank you for reaching out. We received your message:\n\n"${plainMessage}"\n\nWe’ll be in touch soon.\n— Saved Glass`,
+      text: `Hi ${rawName},\n\nWelcome to Saved Glass. We're thrilled you reached out and wanted to share the note you sent us:\n\n${plainMessage}\n\nWe'll review it and get back to you shortly. In the meantime, you can explore more about our restoration studio here: https://stnobile.github.io/saved-glass/\n\nWarmly,\nThe Saved Glass Team`,
       html: `
-        <div style="font-family: Arial, sans-serif; color: #333;">
-          <img src="https://res.cloudinary.com/dj3sy6ut7/image/upload/v1760790715/saved-glass/SG.png" alt="Saved Glass Logo" style="max-height: 120px; margin-bottom: 20px;" />
-          <p>Hi ${safeName},</p>
-          <p>Thank you for reaching out. We received your message:</p>
-          <blockquote style="border-left: 4px solid #ccc; padding-left: 10px; color: #555;">${safeMessageHtml}</blockquote>
-          <p>We’ll be in touch soon.</p>
-          <p style="color: #1c3d2b; font-weight: bold;">— Saved Glass</p>
-          <div style="margin-top: 20px;">
-            <a href="https://stnobile.github.io/saved-glass/" style="padding: 10px 20px; background-color: #1c3d2b; color: #fff; text-decoration: none; border-radius: 5px;">Visit Our Website</a>
-          </div>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saved Glass</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f7f4ed;">
+  <center role="article" aria-roledescription="email" lang="en" style="width: 100%; background-color: #f7f4ed;">
+    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: 0 auto; padding: 32px 0; font-family: 'Manrope', Arial, sans-serif;">
+      <tr>
+        <td align="center">
+          <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width: 580px; width: 100%; background-color: #ffffff; border: 1px solid #e2d9c3; border-radius: 20px; overflow: hidden;">
+            <tr>
+              <td style="padding: 36px 40px 24px; text-align: center; border-bottom: 1px solid #efe6d7;">
+                <p style="margin: 0; font-size: 20px; color: #1c3d2b; font-weight: 400; letter-spacing: 0.2px;">
+                  Welcome to <span style="font-weight: 600; text-decoration: underline; text-decoration-thickness: 2px;">Saved Glass</span>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 32px 32px 36px;">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                  <tr>
+                    <td align="center" style="padding: 0 0 24px;">
+                      <img src="https://res.cloudinary.com/dj3sy6ut7/image/upload/v1760790715/saved-glass/SG.png" alt="Saved Glass logo" style="display: block; width: 100%; max-width: 200px; height: auto; border-radius: 18px; margin: 0 auto;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td align="center" style="color: #36423c; font-size: 16px; line-height: 1.7;">
+                      <p style="margin: 0 0 12px;">Hi ${safeName},</p>
+                      <p style="margin: 0 0 18px;">We're so glad to finally meet you. Here's the message you shared with us:</p>
+                      <div style="margin: 0 auto 24px; padding: 18px 20px; background-color: #f1ede3; border-radius: 14px; color: #4d5d54; text-align: left; display: inline-block; max-width: 100%; box-sizing: border-box;">
+                        ${safeMessageHtml}
+                      </div>
+                      <p style="margin: 0 0 24px;">Our restorers will review your note and connect with you shortly to plan next steps.</p>
+                      <div style="width: 60px; height: 2px; background-color: #c1cbbf; margin: 0 auto 24px;"></div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding: 0 40px 36px; text-align: center;">
+                <p style="margin: 0 0 22px; color: #5a6f65; font-size: 15px; line-height: 1.6;">
+                  While you wait, discover how Saved Glass brings kintsugi artistry and precision grinding to hotels, restaurants, and cafes across the UAE.
+                </p>
+                <a href="https://stnobile.github.io/saved-glass/" class="cta-btn" style="display: inline-block; padding: 14px 32px; border: 1px solid #1c3d2b; color: #1c3d2b; text-decoration: none; font-weight: 600; letter-spacing: 0.5px;">
+                  Explore Saved Glass
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="background-color: #f7f4ed; padding: 22px 40px; text-align: center; color: #7e8b86; font-size: 12px; line-height: 1.6;">
+                <p style="margin: 0;">Saved Glass · Dubai, UAE</p>
+                <p style="margin: 6px 0 0;">You are receiving this email because you reached out via our website contact form.</p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>
       `,
     });
 
