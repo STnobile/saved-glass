@@ -1016,6 +1016,11 @@ h2, h4 {
 
 .toast-container {
   z-index: 1080;
+  pointer-events: none;
+}
+
+.toast-container.is-active {
+  pointer-events: auto;
 }
 
 .toast-container-center {

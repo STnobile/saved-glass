@@ -12,7 +12,7 @@ const CONTACT_RATE_WINDOW_MS = Number(process.env.CONTACT_RATE_WINDOW_MS || 60_0
 const MAX_MESSAGE_LENGTH = Number(process.env.CONTACT_MAX_MESSAGE_LENGTH || 2000);
 const MAX_NAME_LENGTH = Number(process.env.CONTACT_MAX_NAME_LENGTH || 80);
 
-const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS || 'http://127.0.0.1:5500,http://localhost:5500')
+const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS || 'http://127.0.0.1:5500,http://localhost:5500,https://svenskadomaner.se,https://www.svenskadomaner.se')
   .split(',')
   .map((origin) => origin.trim())
   .filter(Boolean);

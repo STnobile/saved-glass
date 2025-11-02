@@ -79,35 +79,35 @@
           aria-label="Restored glassware showcase" aria-live="polite" tabindex="0">
           <figure class="netflix-item bg-white rounded-4 shadow-sm">
             <picture class="carousel-media">
-              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/SG.webp"
+              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/Glass1.webp"
                 alt="Repaired wine glass rim with smooth edge" width="256" height="256" loading="lazy">
             </picture>
             <figcaption class="carousel-card-caption small text-gold mt-2">Rim Chip Refinishing</figcaption>
           </figure>
           <figure class="netflix-item bg-white rounded-4 shadow-sm">
             <picture class="carousel-media">
-              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/SG.webp"
+              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/plate1.webp"
                 alt="Cup restored using gold kintsugi seams" width="256" height="256" loading="lazy">
             </picture>
             <figcaption class="carousel-card-caption small text-gold mt-2">Kintsugi Restoration</figcaption>
           </figure>
           <figure class="netflix-item bg-white rounded-4 shadow-sm">
             <picture class="carousel-media">
-              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/SG.webp"
+              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/polish.webp"
                 alt="Polished tumbler set reflecting soft light" width="256" height="256" loading="lazy">
             </picture>
             <figcaption class="carousel-card-caption small text-gold mt-2">Polished Tumblers</figcaption>
           </figure>
           <figure class="netflix-item bg-white rounded-4 shadow-sm">
             <picture class="carousel-media">
-              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/SG.webp"
+              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/plate2.webp"
                 alt="Fine china plate with renewed finish" width="256" height="256" loading="lazy">
             </picture>
             <figcaption class="carousel-card-caption small text-gold mt-2">Plate Refinishing</figcaption>
           </figure>
           <figure class="netflix-item bg-white rounded-4 shadow-sm">
             <picture class="carousel-media">
-              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/SG.webp" alt="Saved Glass brand emblem"
+              <img class="img-fluid w-100 h-100 object-fit-contain" src="assets/craftsmanship.webp" alt="Saved Glass brand emblem"
                 width="256" height="256" loading="lazy">
             </picture>
             <figcaption class="carousel-card-caption small text-gold mt-2">Trusted Craftsmanship</figcaption>
@@ -220,72 +220,82 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const navbar = document.querySelector('.navbar');
       const navbarCollapse = document.getElementById('navbarNav');
       const navbarToggler = document.querySelector('.navbar-toggler');
-      const navbar = document.querySelector('.navbar');
       const NAV_BREAKPOINT = 992;
       let toastTimeout = null;
+      const toastContainer = document.getElementById('toastContainer');
+      let isNavOpen = false;
+      const desktopQuery = window.matchMedia(`(min-width: ${NAV_BREAKPOINT}px)`);
+      const supportsSmoothScroll = 'scrollBehavior' in document.documentElement.style;
 
-      if (navbarCollapse) {
-        const navLinks = navbarCollapse.querySelectorAll('a');
+      const setNavState = (open) => {
+        if (!navbarCollapse || !navbarToggler) return;
+        navbarCollapse.classList.toggle('is-open', open);
+        navbarToggler.setAttribute('aria-expanded', String(open));
+        isNavOpen = open;
+      };
 
-        const openNav = () => {
-          navbarCollapse.classList.add('is-open');
-          if (navbarToggler) {
-            navbarToggler.setAttribute('aria-expanded', 'true');
-          }
-        };
+      const closeNav = () => setNavState(false);
+      const openNav = () => setNavState(true);
 
-        const closeNav = () => {
+      const scrollToTarget = (targetId) => {
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        const navHeight = navbar?.offsetHeight || 0;
+        const targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 4;
+        const top = Math.max(targetTop, 0);
+        try {
+          window.scrollTo({ top, behavior: supportsSmoothScroll ? 'smooth' : 'auto' });
+        } catch (err) {
+          window.scrollTo(0, top);
+        }
+      };
+
+      const handleViewportChange = () => {
+        if (!navbarCollapse || !navbarToggler) return;
+        if (desktopQuery.matches) {
           navbarCollapse.classList.remove('is-open');
-          if (navbarToggler) {
-            navbarToggler.setAttribute('aria-expanded', 'false');
-          }
-        };
+          navbarToggler.setAttribute('aria-expanded', 'false');
+          isNavOpen = false;
+          return;
+        }
+        closeNav();
+      };
 
-        if (navbarToggler) {
-          navbarToggler.addEventListener('click', () => {
-            if (navbarCollapse.classList.contains('is-open')) {
-              closeNav();
-            } else {
-              openNav();
-            }
-          });
+      if (navbarCollapse && navbarToggler) {
+        handleViewportChange();
+
+        if (typeof desktopQuery.addEventListener === 'function') {
+          desktopQuery.addEventListener('change', handleViewportChange);
+        } else if (typeof desktopQuery.addListener === 'function') {
+          desktopQuery.addListener(handleViewportChange);
         }
 
-        navLinks.forEach((link) => {
-          link.addEventListener('click', (event) => {
-            const href = link.getAttribute('href') || '';
-            if (href.startsWith('#') && href.length > 1) {
-              const targetId = href.slice(1);
-              const target = document.getElementById(targetId);
-              if (target) {
-                event.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                if (history.pushState) {
-                  history.replaceState(null, '', `#${targetId}`);
-                } else {
-                  window.location.hash = targetId;
-                }
-              }
-            }
-
-            if (window.innerWidth < NAV_BREAKPOINT) {
-              closeNav();
-            }
-          });
+        navbarToggler.addEventListener('click', () => {
+          if (desktopQuery.matches) return;
+          if (isNavOpen) {
+            closeNav();
+          } else {
+            openNav();
+          }
         });
 
-        window.addEventListener('resize', () => {
-          if (window.innerWidth >= NAV_BREAKPOINT) {
-            closeNav();
-          }
+        const navLinks = navbarCollapse.querySelectorAll('a[href^="#"]');
+        navLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            if (desktopQuery.matches) return;
+            window.requestAnimationFrame(() =>
+              window.requestAnimationFrame(closeNav)
+            );
+          });
         });
 
         window.addEventListener('scroll', () => {
-          if (window.innerWidth < NAV_BREAKPOINT) {
-            closeNav();
-          }
+          if (!isNavOpen) return;
+          if (desktopQuery.matches) return;
+          closeNav();
         });
       }
 
@@ -296,6 +306,15 @@
       const nameInput = document.getElementById('name');
       const emailInput = document.getElementById('email');
       const messageInput = document.getElementById('message');
+      const contactEndpoint = (() => {
+        if (form?.dataset?.apiBase) {
+          return `${form.dataset.apiBase.replace(/\/+$/, '')}/api/contact`;
+        }
+        if (['localhost', '127.0.0.1'].includes(window.location.hostname)) {
+          return 'http://localhost:5050/api/contact';
+        }
+        return '/api/contact';
+      })();
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -319,7 +338,7 @@
         submitBtn.innerHTML = 'Sending... <span class="spinner-border spinner-border-sm"></span>';
 
         try {
-          const res = await fetch('http://localhost:5050/api/contact', {
+          const res = await fetch(contactEndpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name, email, message }),
@@ -356,8 +375,10 @@
         toastBody.textContent = message;
 
         toastEl.classList.add('show');
+        toastContainer?.classList.add('is-active');
         const hide = () => {
           toastEl.classList.remove('show');
+          toastContainer?.classList.remove('is-active');
           closeBtn.onclick = null;
           if (toastTimeout) {
             window.clearTimeout(toastTimeout);
