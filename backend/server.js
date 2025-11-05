@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
@@ -12,7 +13,7 @@ const CONTACT_RATE_WINDOW_MS = Number(process.env.CONTACT_RATE_WINDOW_MS || 60_0
 const MAX_MESSAGE_LENGTH = Number(process.env.CONTACT_MAX_MESSAGE_LENGTH || 2000);
 const MAX_NAME_LENGTH = Number(process.env.CONTACT_MAX_NAME_LENGTH || 80);
 
-const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS || 'http://127.0.0.1:5500,http://localhost:5500,https://svenskadomaner.se,https://www.svenskadomaner.se')
+const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS || 'http://127.0.0.1:5500,http://localhost:5500,https://svenskadomaner.se,https://www.svenskadomaner.se,https://savedglass.com,https://www.savedglass.com')
   .split(',')
   .map((origin) => origin.trim())
   .filter(Boolean);
@@ -30,6 +31,8 @@ app.use(cors({
 
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
+
+const frontendDir = path.join(__dirname, '..');
 
 const requiredEnv = [
   'SMTP_HOST',
@@ -82,6 +85,24 @@ app.use((err, req, res, next) => {
     return res.status(403).json({ error: 'CORS origin denied' });
   }
   return next(err);
+});
+
+app.use('/assets', express.static(path.join(frontendDir, 'assets')));
+app.use('/css', express.static(path.join(frontendDir, 'css')));
+app.use('/js', express.static(path.join(frontendDir, 'js')));
+
+const sendHome = (req, res) => {
+  res.sendFile(path.join(frontendDir, 'home.html'));
+};
+
+app.get('/', sendHome);
+app.get('/home', (req, res) => res.redirect(301, '/'));
+app.get('/home.html', sendHome);
+app.get('/index.html', (req, res) => {
+  res.sendFile(path.join(frontendDir, 'index.html'));
+});
+app.get('/site.webmanifest', (req, res) => {
+  res.sendFile(path.join(frontendDir, 'site.webmanifest'));
 });
 
 // Test endpoint
