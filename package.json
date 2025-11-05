@@ -1,4 +1,15 @@
 {
+  "name": "saved-glass",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Saved Glass static site with backend service",
+  "scripts": {
+    "heroku-postbuild": "npm install --prefix backend",
+    "postinstall": "npm install --prefix backend"
+  },
+  "engines": {
+    "node": "20.x"
+  },
   "dependencies": {
     "cloudinary": "^2.7.0"
   }
