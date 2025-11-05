@@ -90,6 +90,9 @@ app.use((err, req, res, next) => {
 app.use('/assets', express.static(path.join(frontendDir, 'assets')));
 app.use('/css', express.static(path.join(frontendDir, 'css')));
 app.use('/js', express.static(path.join(frontendDir, 'js')));
+app.use(express.static(frontendDir, {
+  index: 'home.html',
+}));
 
 const sendHome = (req, res) => {
   res.sendFile(path.join(frontendDir, 'home.html'));
@@ -104,6 +107,7 @@ app.get('/index.html', (req, res) => {
 app.get('/site.webmanifest', (req, res) => {
   res.sendFile(path.join(frontendDir, 'site.webmanifest'));
 });
+app.get(/^\/(?!api\/).*/, sendHome);
 
 // Test endpoint
 app.get('/cors-test', (req, res) => {
