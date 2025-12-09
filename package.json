@@ -4,7 +4,6 @@
   "private": true,
   "description": "Saved Glass static site with backend service",
   "scripts": {
-    "heroku-postbuild": "npm install --prefix backend",
     "postinstall": "npm install --prefix backend"
   },
   "engines": {
