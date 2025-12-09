@@ -180,22 +180,24 @@
             Let’s keep your hotel, restaurant, or café looking flawless while reducing waste and costs.
           </p>
         </div>
-        <form id="contact-form" class="contact-form" novalidate>
+        <form id="contact-form" class="contact-form" novalidate
+          action="https://formspree.io/f/myzrdavj" method="POST" data-formspree-url="https://formspree.io/f/myzrdavj">
           <div class="form-field">
             <label for="name" class="form-label">Name <span class="required">(required)</span></label>
-            <input type="text" class="form-control" id="name" placeholder="Your full name" required autocomplete="name"
+            <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" required autocomplete="name"
               aria-label="Your Name">
           </div>
           <div class="form-field">
             <label for="email" class="form-label">Email <span class="required">(required)</span></label>
-            <input type="email" class="form-control" id="email" placeholder="name@company.com" required
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@company.com" required
               autocomplete="email" aria-label="Your Email">
           </div>
           <div class="form-field">
             <label for="message" class="form-label">Tell us about your project <span class="required">(required)</span></label>
-            <textarea class="form-control" id="message" rows="5" placeholder="Share the pieces you’d like restored..."
+            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Share the pieces you’d like restored..."
               required aria-label="Your Message"></textarea>
           </div>
+          <input type="hidden" name="_subject" value="New Saved Glass inquiry">
           <button type="submit" class="contact-submit">
             Send Message <span aria-hidden="true">↗</span>
           </button>
@@ -306,15 +308,7 @@
       const nameInput = document.getElementById('name');
       const emailInput = document.getElementById('email');
       const messageInput = document.getElementById('message');
-      const contactEndpoint = (() => {
-        if (form?.dataset?.apiBase) {
-          return `${form.dataset.apiBase.replace(/\/+$/, '')}/api/contact`;
-        }
-        if (['localhost', '127.0.0.1'].includes(window.location.hostname)) {
-          return 'http://localhost:5050/api/contact';
-        }
-        return '/api/contact';
-      })();
+      const formspreeEndpoint = form?.dataset?.formspreeUrl || form?.action;
 
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -338,18 +332,17 @@
         submitBtn.innerHTML = 'Sending... <span class="spinner-border spinner-border-sm"></span>';
 
         try {
-          const res = await fetch(contactEndpoint, {
+          const res = await fetch(formspreeEndpoint, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, message }),
+            headers: { Accept: 'application/json' },
+            body: new FormData(form),
           });
 
-          const data = await res.json();
           if (res.ok) {
             showToast('Success', 'Your message was sent!', 'success');
             form.reset();
           } else {
-            showToast('Server Error', data.error || 'Unable to send message', 'danger');
+            showToast('Server Error', 'Unable to send message. Please try again.', 'danger');
           }
         } catch (err) {
           console.error(err);
